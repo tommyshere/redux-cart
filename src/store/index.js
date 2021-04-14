@@ -3,7 +3,7 @@ import uiSlice from './ui';
 import cartSlice from './cart';
 
 const store = configureStore({
-  reducer: { ui: uiSlice.reducer },
+  reducer: { ui: uiSlice.reducer, cart: cartSlice.reducer },
 });
 
 export const uiActions = uiSlice.actions;
