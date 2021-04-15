@@ -4,7 +4,7 @@ import Layout from './components/Layout/Layout';
 import Products from './components/Shop/Products';
 import Notification from './components/UI/Notification';
 import { useSelector, useDispatch } from 'react-redux';
-import { sendCartData } from './store/cart';
+import { sendCartData, fetchCartData } from './store/cartActions';
 
 let isInitial = true;
 
@@ -14,6 +14,10 @@ function App() {
   const cart = useSelector((state) => state.cart);
   const notification = useSelector((state) => state.ui.notification);
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchCartData());
+  }, [dispatch]);
 
   useEffect(() => {
     // this segment of code stops from hitting sendCartData when it's the initial load of the application
