@@ -27,7 +27,10 @@ function App() {
       return;
     }
 
-    dispatch(sendCartData(cart));
+    if (cart.changed) {
+      dispatch(sendCartData(cart));
+    }
+
     // react-redux ensures dispatch never changes
   }, [cart, dispatch]);
 
